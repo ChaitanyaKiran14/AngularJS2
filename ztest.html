@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+    <meta charset="UTF-8">
+    <title>ng-bind Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+    <div ng-init="val1 = 0; val2 = 1; arr = [1,2,3,4,5] ; sum = (val1+ val2); objs = [{name : 'chaitanya', age : 23, email : 'g.chaitanya1419@gmail.com'},{name : 'stark', age : 23, email : 'stark@gmail.com'},{name : 'kiran', age : 23, email : 'kiran@gmail.com'} ]; display = true ; ">
+    <button ng-click="display= !display" > Show </button>         
+    </div>
+    <div  >
+      <ul >
+        <li   ng-show="display"  ng-repeat="val in objs"> {{val}}</li>
+      </ul>
+
+    </div>
+    <div ng-init="val= 'chaitu'; arr= [{name : 'chaitu', age : 23}, {name : 'kiran', age : 24}, {name : 'stark', age : 23}, ] , " >
+        <p  ng-repeat="val in arr"  ng-if="val.age==23">{{val}} </p>
+
+    </div>
+    <!-- Here we are trying to access the names of the persons whose age is 23-->
+
+    <div ng-init="val='chaitu'; arr=[{name: 'chaitu', age: 23}, {name: 'kiran', age: 24}, {name: 'stark', age: 23}]">
+    <p ng-repeat="person in arr" ng-if="person.age === 23">{{person.name}}</p>
+    
+</div>
+
+
+
+</body>
+</html>
