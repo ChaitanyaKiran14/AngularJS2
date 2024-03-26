@@ -7,7 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <div  ng-init="selectedOption = 'sum'; val1 = 10; val2 = 2">
+    <div  ng-init="selectedOption = 'sum';">
+        <input placeholder="1st value" type="number" ng-model="val1" /> 
+        <input  placeholder="2nd value" type="number" ng-model="val2"/>
+
+        
         <div>
             <select ng-model="selectedOption">
                 <option value="sum">+ Addition</option>
