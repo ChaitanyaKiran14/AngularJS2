@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="main.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div ng-init="selectedOption = 'option1'">
+        <select ng-model="selectedOption">
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+        </select>
+        <div ng-switch="selectedOption">
+            <div ng-switch-when="option1">
+                <p>You selected Option 1.</p>
+            </div>
+            <div ng-switch-when="option2">
+                <p>You selected Option 2.</p>
+            </div>
+            <div ng-switch-when="option3">
+                <p>You selected Option 3.</p>
+            </div>
+            <div ng-switch-default>
+                <p>Please select an option.</p>
+            </div>
+        </div>
+    </div>
+    <div ng-init="option = 'india'">
+        <select ng-model="option">
+            <option value="india">India</option>
+            <option value="argentina">Argentina</option>
+            <option value="australia">Australia</option>
+            <option value="finland">Finland</option>
+        </select>
+        <div ng-switch="option">
+            <div ng-switch-when="india">
+                The capital of India is New Delhi
+            </div>
+            <div ng-switch-when="argentina">
+                The capital of India is Buenos Aires
+            </div>
+            <div ng-switch-when="australia">
+                The capital of India is Sydney
+            </div>
+            <div ng-switch-when="finland">
+                The capital of India is Helsinki
+            </div>
+            <div ng-switch-default>
+                <p>Please select an option.</p>
+            </div>
+        </div>
+</body>
+</html>
