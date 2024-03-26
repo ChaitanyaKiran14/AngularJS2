@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="main.js" ></script>
+</head>
+<body>
+    <div ng-app="">
+        <!--The ng-app directive defines an AngularJS application.
+        The ng-model directive binds the value of HTML controls (input, select, textarea) to application data.-->
+        <!--The ng-bind directive binds application data to the HTML view.-->
+        <p>Name: <input type="text" ng-model="name"/></p>
+        <p ng-bind="name"></p>
+      </div>
+</body>
+</html>
