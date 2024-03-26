@@ -8,11 +8,9 @@
     <title>Document</title>
 </head>
 <body>
-    <div ng-init="a=10; b=20; array = [14,15,16]" >
-        <p> {{a+b}}</p>
+    <div ng-init="a='chaitanya'; isVisible=true">
+        <p ng-show="isVisible">{{a}}</p>
+        <button ng-click="isVisible = !isVisible">Toggle Visibility</button>
     </div>
-  <ul>
-    <li ng-repeat='item in array'>{{item}}</li>
-  </ul>
 </body>
 </html>
