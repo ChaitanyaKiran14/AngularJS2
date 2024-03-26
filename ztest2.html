@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div  ng-init="selectedOption = 'sum'; val1 = 10; val2 = 2">
+        <div>
+            <select ng-model="selectedOption">
+                <option value="sum">+ Addition</option>
+                <option value="minus">- Subtraction</option>
+                <option value="mul">* Multiplication</option>
+                <option value="divide">/ Division</option>
+            </select>
+        </div>
+        <div ng-switch="selectedOption">
+            <h1 ng-switch-when="sum">{{val1 + val2}}</h1>
+            <h1 ng-switch-when="minus">{{val1 - val2}}</h1>
+            <h1 ng-switch-when="mul">{{val1 * val2}}</h1>
+            <h1 ng-switch-when="divide">{{val1 / val2}}</h1>
+            <h1 ng-switch-default>Select something bro</h1>
+        </div>
+    </div>
+    
+</body>
+</html>
