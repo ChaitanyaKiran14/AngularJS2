@@ -8,9 +8,27 @@
     <title>Document</title>
 </head>
 <body>
-    <div ng-init="a='chaitanya'; isVisible=true">    
-        <button ng-click="isVisible = !isVisible">Toggle Visibility</button>
-        <p ng-show="isVisible">{{a}}</p>
+    <div ng-init="a='chaitanya'; isVisible1=true">    
+        <button ng-click="isVisible1 = !isVisible1">Toggle Visibility</button>
+        <p ng-show="isVisible1">{{a}}</p>
+        <br/>
     </div>
+
+    <div ng-init="b='kiran'; isVisible=true">    
+        <button ng-click="isVisible = !isVisible">Toggle Visibility</button>
+        <p ng-if="isVisible">{{b}}</p>
+    </div>
+
+    <div ng-init="tasks = [{task: 'Workout', status: 'done'}, {task: 'drink water', status: 'done'}]">
+        <p ng-repeat="work in tasks" ng-if="work.status=='done'">{{work.task}}</p>
+    </div>
+
+    <div ng-init="tasks = [{task: 'Workout', status: 'done'}, {task: 'drink water', status: 'done'}]">
+        <p ng-repeat="work in tasks" ng-if="work.status=='done'">{{tasks|json}}</p>
+        <pre ng-repeat="work in tasks" ng-if="work.status=='done'">{{tasks|json}}</pre>
+
+    </div>
+    
+
 </body>
 </html>
