@@ -8,17 +8,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="todo.js" ></script>
     <link rel="stylesheet" href="todo.css"/>
+    
 </head>
 <body >
     <div><h1 class="todo">TODO APP</h1></div>
-   <div ng-controller="AppController">
+    <h1>My Tasks</h1>
+    <div class="buts">
+        <input ng-model="task" type="text" /> <br/> <br/> <button class="but">Add</button>
 
-   </div>
-   <div  ng-controller="AppController2" >
-    <h1>{{ greeting }}</h1>
+    </div>
     
-    
-   </div>
+  
+  
 
 </body>
 </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="phoneBookApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Book</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" ng-controller="PhoneBookController">
+        <h1>Phone Book</h1>
+        <form ng-submit="addContact()">
+            <input type="text" ng-model="newContact.name" placeholder="Name" required><br>
+            <input type="text" ng-model="newContact.phoneNumber" placeholder="Phone Number" required><br>
+            <input type="text" ng-model="newContact.address" placeholder="Address" required><br>
+            <button type="submit">Add Contact</button>
+        </form>
+        <ul class="contact-list">
+            <li class="contact-item" ng-repeat="contact in contacts">
+                <div ng-if="editIndex !== $index">
+                    <strong>{{contact.name}}</strong><br>
+                    Phone: {{contact.phoneNumber}}<br>
+                    Address: {{contact.address}}
+                    <button class="edit-button" ng-click="editContact($index)">Edit</button>
+                    <button class="delete-button" ng-click="deleteContact($index)">Delete</button>
+                </div>
+                <div ng-if="editIndex === $index">
+                    <input type="text" ng-model="editing.name" placeholder="Name" required><br>
+                    <input type="text" ng-model="editing.phoneNumber" placeholder="Phone Number" required><br>
+                    <input type="text" ng-model="editing.address" placeholder="Address" required><br>
+                    <button ng-click="saveContact($index)">Save</button>
+                    <button ng-click="cancelEdit()">Cancel</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

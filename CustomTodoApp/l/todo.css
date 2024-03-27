@@ -1,5 +1,14 @@
+
 .todo{
     display: flex;
     justify-content: center;
     align-self: center;
+}
+.buts{
+    display: flex;
+    
+}
+
+.but{
+    margin-left: 10px;
 }
