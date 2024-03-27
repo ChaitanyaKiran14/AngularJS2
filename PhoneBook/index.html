@@ -10,6 +10,7 @@
 <body>
     <div class="container" ng-controller="PhoneBookController">
         <h1>Phone Book</h1>
+        
         <form ng-submit="addOrEditContact()">
             <input type="text" ng-model="newContact.name" placeholder="Name" required><br>
             <input type="text" ng-model="newContact.phoneNumber" placeholder="Phone Number" required><br>

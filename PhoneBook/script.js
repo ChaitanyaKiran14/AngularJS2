@@ -1,5 +1,6 @@
 angular.module('phoneBookApp', [])
 .controller('PhoneBookController', ['$scope', function($scope) {
+    
     $scope.contacts = [];
     $scope.editIndex = null;
     $scope.editing = null;

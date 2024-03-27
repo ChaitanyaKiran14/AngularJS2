@@ -87,7 +87,7 @@ button:hover {
     margin-left: 5px;
 }
 
-/* Responsive Styling */
+
 @media screen and (max-width: 768px) {
     input[type="text"], button {
         width: 100%;
@@ -116,19 +116,16 @@ button:hover {
     }
 }
 
-/* Search input styling */
 input[type="text"][placeholder="Search contacts"] {
     margin-bottom: 10px;
 }
 
-/* Responsive Styling */
 @media screen and (max-width: 768px) {
     input[type="text"][placeholder="Search contacts"] {
         width: 100%;
     }
 }
 
-/* Additional styling for smaller screens */
 @media screen and (max-width: 480px) {
     .container {
         padding: 15px;
