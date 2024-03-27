@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: #f5f5f5;
     margin: 0;
     padding: 0;
@@ -8,18 +8,20 @@ body {
 .container {
     max-width: 600px;
     margin: 20px auto;
-    background-color: #fff;
+    background: linear-gradient(135deg, #f3e7e9, #c3cfe2);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
+    font-family: 'Roboto', sans-serif;
     text-align: center;
     color: #333;
 }
 
-input[type="text"] {
+input[type="text"], button {
+    font-family: 'Roboto', sans-serif;
     width: calc(100% - 24px);
     padding: 10px;
     margin: 5px 0;
@@ -28,26 +30,31 @@ input[type="text"] {
     box-sizing: border-box;
 }
 
+input[type="text"][placeholder="Search contacts"] {
+    margin-bottom: 10px;
+}
+
 button {
     padding: 8px 12px;
-    background-color: #007bff;
+    background: linear-gradient(135deg, #007bff, #0056b3);
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     width: 48%;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background: linear-gradient(135deg, #0056b3, #003c7e);
 }
 
 .edit-button {
-    background-color: #28a745;
+    background: linear-gradient(135deg, #28a745, #1a9e3b);
 }
 
 .delete-button {
-    background-color: #dc3545;
+    background: linear-gradient(135deg, #dc3545, #b02a37);
 }
 
 .contact-list {
@@ -82,13 +89,57 @@ button:hover {
 
 /* Responsive Styling */
 @media screen and (max-width: 768px) {
-    button {
+    input[type="text"], button {
         width: 100%;
         margin-right: 0;
-        margin-bottom: 5px; /* Add some space between buttons on smaller screens */
+        margin-bottom: 5px;
     }
 
     .button-group {
         justify-content: space-between;
+    }
+}
+
+/* Additional styling for smaller screens */
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    input[type="text"], button {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .button-group button {
+        margin-left: 3px;
+    }
+}
+
+/* Search input styling */
+input[type="text"][placeholder="Search contacts"] {
+    margin-bottom: 10px;
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+    input[type="text"][placeholder="Search contacts"] {
+        width: 100%;
+    }
+}
+
+/* Additional styling for smaller screens */
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    input[type="text"], button {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .button-group button {
+        margin-left: 3px;
     }
 }
