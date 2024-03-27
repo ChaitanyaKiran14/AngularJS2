@@ -3,13 +3,25 @@ angular.module('phoneBookApp', [])
     $scope.contacts = [];
     $scope.editIndex = null;
 
+    function generateId(len) {
+        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var id = '';
+        for (var i = 0; i < len; i++) {
+            var index = Math.floor(Math.random() * characters.length);
+            id += characters[index];
+        }
+        return id;
+    }
+
     $scope.addContact = function() {
+        var id = generateId(8); // Generate an 8-character ID
         $scope.contacts.push({
+            id: id,
             name: $scope.newContact.name,
             phoneNumber: $scope.newContact.phoneNumber,
             address: $scope.newContact.address
         });
-        $scope.newContact = {};
+        $scope.newContact = {}; // Clear the input fields after adding
     };
 
     $scope.deleteContact = function(index) {

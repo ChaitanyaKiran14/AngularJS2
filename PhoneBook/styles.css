@@ -69,3 +69,26 @@ button:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.button-group button {
+    width: auto;
+    margin-left: 5px;
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+    button {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 5px; /* Add some space between buttons on smaller screens */
+    }
+
+    .button-group {
+        justify-content: space-between;
+    }
+}
