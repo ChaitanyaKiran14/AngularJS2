@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="phoneBookApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Service</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <div ng-controller="MainController as mainCtrl" ng-init="mainCtrl.init()">
+        <h1>Contact List</h1>
+
+        <!-- Display contacts -->
+        <ul>
+            <li ng-repeat="contact in mainCtrl.contacts">
+               Name :  {{contact.name}} - PhNo : {{contact.phoneNumber}} - Address : {{contact.address}}
+                <button ng-click="mainCtrl.editContact(contact)">Edit</button>
+                <button ng-click="mainCtrl.deleteContact(contact.id)">Delete</button>
+            </li>
+        </ul>
+
+        <!-- Add new contact form -->
+        <h2>Add New Contact</h2>
+        <form ng-submit="mainCtrl.addContact(newContact)">
+            <input type="text" ng-model="newContact.name" placeholder="Name" required><br>
+            <input type="text" ng-model="newContact.phoneNumber" placeholder="Phone Number" required><br>
+            <input type="text" ng-model="newContact.address" placeholder="Address" required><br>
+            <button type="submit">Add Contact</button>
+        </form>
+
+        <!-- Edit contact form -->
+        <div ng-if="mainCtrl.showEditForm">
+            <h2>Edit Contact</h2>
+            <form ng-submit="mainCtrl.updateContact()">
+                <input type="text" ng-model="mainCtrl.editingContact.name" placeholder="Name" required><br>
+                <input type="text" ng-model="mainCtrl.editingContact.phoneNumber" placeholder="Phone Number" required><br>
+                <input type="text" ng-model="mainCtrl.editingContact.address" placeholder="Address" required><br>
+                <button type="submit">Save</button>
+                <button ng-click="mainCtrl.cancelEdit()">Cancel</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js" ></script>
+</body>
+ 
+</html>
