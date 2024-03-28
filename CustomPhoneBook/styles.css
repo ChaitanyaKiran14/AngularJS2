@@ -1,0 +1,119 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    background: linear-gradient(135deg, #f3e7e9, #c3cfe2);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    color: #333;
+}
+
+input[type="text"],
+button {
+    font-family: 'Roboto', sans-serif;
+    width: calc(100% - 24px);
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="text"][placeholder="Search contacts"] {
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 8px 12px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 48%;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #0056b3, #003c7e);
+}
+
+.edit-button {
+    background: linear-gradient(135deg, #28a745, #1a9e3b);
+}
+
+.delete-button {
+    background: linear-gradient(135deg, #dc3545, #b02a37);
+}
+
+.contact-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact-item {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.button-group button {
+    width: auto;
+    margin-left: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    input[type="text"],
+    button {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    .button-group {
+        justify-content: space-between;
+    }
+}
+
+/* Additional styling for smaller screens */
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    input[type="text"],
+    button {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .button-group button {
+        margin-left: 3px;
+    }
+}

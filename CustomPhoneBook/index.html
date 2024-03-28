@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="phoneBookApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Book</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body ng-controller="MainController as mainCtrl" ng-init="mainCtrl.init()">
+    <div class="container">
+        <h1>Contact List</h1>
+
+        <!-- Display contacts -->
+        <ul class="contact-list">
+            <li class="contact-item" ng-repeat="contact in mainCtrl.contacts">
+                <strong>{{contact.name}}</strong><br>
+                Phone: {{contact.phoneNumber}}<br>
+                Address: {{contact.address}}
+                <div class="button-group">
+                    <button class="edit-button" ng-click="mainCtrl.editContact(contact)">Edit</button>
+                    <button class="delete-button" ng-click="mainCtrl.deleteContact(contact.id)">Delete</button>
+                </div>
+            </li>
+        </ul>
+
+        <!-- Add or Edit contact form -->
+        <h2>{{ mainCtrl.editing !== null ? 'Edit Contact' : 'Add New Contact' }}</h2>
+        <form ng-submit="mainCtrl.addOrEditContact()">
+            <input type="text" ng-model="mainCtrl.newContact.name" placeholder="Name" required><br>
+            <input type="text" ng-model="mainCtrl.newContact.phoneNumber" placeholder="Phone Number" required><br>
+            <input type="text" ng-model="mainCtrl.newContact.address" placeholder="Address" required><br>
+            <button type="submit">{{ mainCtrl.editing !== null ? 'Save Changes' : 'Add' }}</button>
+            <button type="button" ng-click="mainCtrl.cancelEdit()" ng-show="mainCtrl.editing !== null">Cancel</button>
+        </form>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
