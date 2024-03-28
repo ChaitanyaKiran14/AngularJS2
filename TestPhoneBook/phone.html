@@ -1,47 +1,69 @@
 <!DOCTYPE html>
-<html ng-app="Phone" lang="en">
+<html lang="en" ng-app="phoneBookApp">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="phone.js" ></script>
-    <link rel="stylesheet" href="phone.css">
-    <title>Phone Book2</title>
+    <script  src="main.js" ></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div ng-controller="controller1">
+    <div class="container" ng-controller="PhoneBookController">
+        <div class="form-container" ng-show="showEditFeild===false">
+            <h1 class="heading">Phone Book</h1>
+            <form ng-submit="addContact(name,email,phoneNumber,address)">
+                <input id='inputName' type="text" ng-model="name" placeholder="Name" required><br>
+                <input id='inputEmail' type="email" ng-model="email" placeholder="E Mail" required><br>
+                <input id='inputNumber' type="number" ng-model="phoneNumber" placeholder="Phone Number" required><br>
+                <input id='inputAdress' type="text" ng-model="address" placeholder="Address" required><br>
+                <button type="submit">Add Contact</button>
+            </form>
+            <div>
+                <img class="phoneBook"
+                    src="https://static8.depositphotos.com/1029554/813/i/450/depositphotos_8138619-stock-photo-old-style-phone-over-yellow.jpg" />
+            </div>
+        </div>
 
-        <h1>PHONE BOOK</h1>
-        <form ng-submit="addContact()">
-            <input  type="text" placeholder="name" ng-model="newName" required />
-            <br/>
-            <input  type="text" placeholder="email" ng-model="newEmail" required />
-            <br/>
-            <input  type="text" placeholder="address" ng-model="newAddress" required />
-            <br/>
-            <br/>
-            <button type="submit">Submit</button>
+        <div class="form-container1" ng-if="showEditFeild===true">
+            <h1 class="heading">Edit Mode</h1>
+            <div>
+                <input type="text" ng-model="editedName" value="{{editedName}}" placeholder="Edited Name" required>
+                <input type="text" ng-model="editedEmail" value="{{editedEmail}}" placeholder="Edited EMail" required>
+                <input type="text" ng-model="editedPhone" value="{{editedPhone}}" placeholder="Edited Phone" required>
+                <input type="text" ng-model="editedAdress" value="{{editedAdress}}" placeholder="Edited Adress"
+                    required>
 
-        </form>
-        <div ng-if="contacts.length > 0">
-            <h2>Contacts:</h2>
-            <ul>
-                <li ng-repeat="contact in contacts">
-                    
-                    <h3>Name: {{contact.name}}</h3>
-                    <p>Email: {{contact.email}}</p>
-                    <p>Address: {{contact.address}}</p>
-                    <div class="but">
-                        <button ng-click="edit($index)">Edit</button>
-                        <button ng-click="delete($index)">Delete</button>
-        
+                <button class="buttonEdit" ng-click="EditContact(editedName,editedEmail,editedPhone,editedAdress)">Edit
+                    Contact</button>
+            </div>
+            <div>
+                <img class="phoneBook"
+                    src="https://static8.depositphotos.com/1029554/813/i/450/depositphotos_8138619-stock-photo-old-style-phone-over-yellow.jpg" />
+            </div>
+        </div>
+        <div class="list-container">
+            <h2 class="heading">My Contacts</h2>
+            <input type="search" placeholder="search your contact" ng-model="query"><br>
+            <h3 ng-if="contacts.length===0" class="heading">No Contacts were Added</h3>
+            <ul class="contact-list">
+                <li class="contact-item" ng-repeat="contact in contacts |  filter:query">
+                    <div class="num-info">
+                        <p class="info"><strong>Name :</strong>{{contact.name}}</p><br>
+                        <p class="info"><strong>Phone :</strong> {{contact.phone}}<br></p>
+                        <p class="info"> <strong>Email :</strong> {{contact.email}}<br></p>
+                        <p class="info"> <strong>Address : </strong> {{contact.address}}</p>
                     </div>
-                </ul>
+                    <div class="button-container">
+                        <button class="DELETE" ng-click="deleteContact(contact.id)">DELETE</button>
+                        <button class="edit" ng-click="onEditContact(contact.id)">EDIT</button>
+                    </div>
                 </li>
-                
-            
+            </ul>
         </div>
     </div>
-    
+    <script src="script.js"></script>
 </body>
+
 </html>
