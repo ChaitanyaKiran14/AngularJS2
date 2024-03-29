@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>PHone Final</title>
+    
+</head>
+<body>
+    <div ng-controller="myController"  ng-init="init()" >
+
+        <ul ng-repeat="contact in contacts" >
+            <li>{{contact.name}} </li>
+            <li>{{contact.phoneNumber}}</li>
+            <li>{{contact.address}}</li> 
+
+        </ul>
+        <button ng-click="butClick()" > Click bey</button>
+
+
+
+
+    </div>
+    <script src="index.js" ></script>
+    
+</body>
+</html>

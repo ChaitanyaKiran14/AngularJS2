@@ -11,20 +11,25 @@
         <div>
             <h1> My Contacts</h1>
             <div>
-                <ul ng-repeat="contact in contacts">
-                    <li>{{contact.name}} <span><button ng-click="editContact()">Edit</button> <button ng-click="deleteContact()">Delete</button></span></li>
+                <ul ng-repeat="contact in contacts" >
+                    <li>{{contact.name}} </li>
+                    <li>{{contact.phoneNumber}}</li>
+                    <li>{{contact.address}}</li> 
+                    <span><button ng-click="editContact(contact)">Edit</button> <button ng-click="deleteContact(contact.id)">Delete</button></span>
+        
                 </ul>
             </div>
         </div>
         <div>
-            <h1>Add Contact</h1>
+            <h1>{{ editing !== null ? 'Edit Contact' : 'Add New Contact' }}</h1>
             <div>
-                <form ng-submit="formSubmit()">
-                    <input type="text" ng-model="name" placeholder="name"/>
-                    <input type="text" ng-model="number" placeholder="number"/>
-                    <input type="text" ng-model="address" placeholder="address"/>
+                <form ng-submit="addOrEditContact()">
+                    <input type="text" ng-model="newContact.name" placeholder="name"/>
+                    <input type="text" ng-model="newContact.number" placeholder="number"/>
+                    <input type="text" ng-model="newContact.address" placeholder="address"/>
                     <br/>
-                    <button type="submit">Add Contact</button>
+                    <button type="submit">{{ editing !== null ? 'Save Contact' : 'Add Contact' }}</button>
+                    <button type="button" ng-click="cancelEdit()" ng-show="editing !== null">Cancel</button>
                 </form>
             </div>
         </div>

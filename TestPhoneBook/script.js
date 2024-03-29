@@ -22,42 +22,75 @@ app.service("contactBook", ['$http', function ($http) {
     };
 }]);
 
-app.controller('myController', ['$scope', 'contactBook', function($scope, contactBook){
+app.controller('myController', ['$scope', 'contactBook', function($scope, contactBook) {
     $scope.contacts = [];
-    $scope.addNewContact = {};
+    $scope.newContact = {};
     $scope.editing = null;
 
-    $scope.init = function(){
+    $scope.init = function() {
         $scope.getAllContacts();
     };
 
-    $scope.getAllContacts = function(){
+    $scope.getAllContacts = function() {
         contactBook.getAllContacts()
-            .then(function(response){
+            .then(function(response) {
                 $scope.contacts = response.data;
-                console.log(response.data)
             })
-            .catch(function(error){
+            .catch(function(error) {
                 console.log('Error: ', error);
             });
     };
 
-    $scope.clickFunction  = function(){
-        alert("Ok CHAITU YOU ARE GOOD TO GO");
+    $scope.editContact = function(contact) {
+        $scope.newContact = angular.copy(contact);
+        $scope.editing = contact.id;
+    };
+    
+    $scope.addOrEditContact = function() {
+        if ($scope.editing !== null) {
+            $scope.updateContact();
+        } else {
+            $scope.addNewContact();
+        }
     };
 
-    $scope.editContact = function(){
-        alert("Edit button working");
+    $scope.addNewContact = function() {
+        contactBook.addNewContact($scope.newContact)
+            .then(function() {
+                $scope.getAllContacts();
+                $scope.newContact = {};
+            })
+            .catch(function(error) {
+                console.error('Error adding new contact:', error);
+            });
     };
 
-    $scope.deleteContact = function(){
-        alert('Delete Working');
+    $scope.updateContact = function() {
+        contactBook.updateContact($scope.newContact)
+            .then(function() {
+                $scope.getAllContacts();
+                $scope.newContact = {};
+                $scope.editing = null;
+            })
+            .catch(function(error) {
+                console.error('Error updating contact:', error);
+            });
     };
 
-    $scope.formSubmit = function(){
-        var name = $scope.name;
-        var number = $scope.number;
-        var address = $scope.address;
-        alert(name + ' '+ number + ' '+ address);
+    $scope.cancelEdit = function() {
+        $scope.newContact = {};
+        $scope.editing = null;
     };
+
+    $scope.deleteContact = function(contactId) {
+        contactBook.deleteContact(contactId)
+            .then(function() {
+                $scope.getAllContacts();
+            })
+            .catch(function(error) {
+                console.error('Error deleting contact:', error);
+            });
+    };
+
+   
 }]);
