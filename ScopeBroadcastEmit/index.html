@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./library/angular.js"></script>
+    <script src="./angular_js_event.js"></script>
+</head>
+<body>
+
+    <div ng-controller="appController">
+     <h3>input value in parent controller</h3>
+       <input type="text" 
+       ng-change="changeText()"
+       ng-model="text"
+       placeholder="app controller input" />
+    <!-- <button ng-click="callChild()">call child function</button><br/>
+
+        <div ng-controller="appControllerChild">
+         <button ng-click="callParent()">call parent function</button><br/>
+         <button ng-click="parentMethod()">parent menthod</button>
+        </div> -->
+       {{name}}
+    </div>
+
+
+    <div ng-controller="appController2">
+    <h3>Value of another controller</h3>
+      <p>{{text}}</p>
+
+      {{name}}
+
+    </div>
+
+
+
+    
+</body>
+</html>
